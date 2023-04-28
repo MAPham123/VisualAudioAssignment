@@ -16,9 +16,8 @@ void setup() {
   
   px = cx;
   py = cy;
-  c = 0;
   
-  box = new cube(150, 0.02f, 20, color(30,140,200), width/2, height/2);
+  box = new cube(150, 0.02f, 20, color(90,140,200), width/2, height/2);
   betterBox = new cube(50, 0.04f ,10 ,color(90,70,100), width/2, height/2);
   evenBetterBox = new cube(250, 0.01f, 10, color(90,70,100), width/2, height/2);
   
@@ -33,7 +32,6 @@ float x,y;
 float r;
 float cx,cy;
 float px, py;
-float c;
 
 float theta = 0;
 cube box;
@@ -51,12 +49,6 @@ float lerpedAverage = 0;
 ArrayList<cube> cubes = new ArrayList<cube>();
 int numCubes = 0;
 
-void keyPressed(){
-  if(key > '0' && key < '9'){
-    numCubes = key - '0';
-    makeCubes(numCubes);
-  }
-}
 
 void makeCubes(int count){
   cubes.clear();
@@ -133,11 +125,38 @@ void draw() {
  
  r += 2f;
  theta += 2f;
- c = (c + 1) % 150;
  
  px = x;
  py = y;
  
+ for(int i = 100; i < 1000; i += 200)
+ {
+   noStroke();
+ fill(c);
+ circle(i, 100, 100);
+ for(int eye = 100; eye < 1000; eye += 200){
+   fill(147, 247, 100);
+   circle(eye + 20, 90, 10);
+   circle(eye - 20, 90, 10);
+ }
+ }
+ 
+}
+
+void keyPressed(){
+  if(key > '0' && key < '9'){
+    numCubes = key - '0';
+    makeCubes(numCubes);
+  }
+  if(key == CODED){
+   if (keyCode == UP){
+     for(int i = 100; i < 1000; i += 200){
+     stroke(147, 247, 100);
+     noFill();
+     circle(i, 120, 25);
+     }
+   }
+  }
 }
 
 void mousePressed()
