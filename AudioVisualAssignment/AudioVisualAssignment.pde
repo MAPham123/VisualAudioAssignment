@@ -65,6 +65,14 @@ void makeCubes(int count){
 
 void draw() {
   
+  background(150, 100, 255);
+  
+    noStroke();
+  
+  fill(255);
+  circle(width/2, height/2, 500);
+  
+  
   float total = 0;
   
   for(int i = 0; i < ab.size(); i++){
@@ -73,9 +81,6 @@ void draw() {
   
   average = total / (float) ab.size();
   lerpedAverage = lerp(lerpedAverage, average, 0.2f);
-  
-  background(150, 100, 255);
-  noStroke();
   
   lights();
   
@@ -134,11 +139,11 @@ void draw() {
  {
    noStroke();
  fill(c);
- circle(i, 100, 100);
+ circle(i, 60, 100);
  for(int eye = 100; eye < 1000; eye += 200){
-   fill(147, 247, 100);
-   circle(eye + 20, 90, 10);
-   circle(eye - 20, 90, 10);
+   fill(255);
+   circle(eye + 20, 60, 10);
+   circle(eye - 20, 60, 10);
  }
  }
  
@@ -149,13 +154,12 @@ void keyPressed(){
     numCubes = key - '0';
     makeCubes(numCubes);
   }
-  //if(key == CODED){
    if (keyCode == UP){
      for(int i = 100; i < 1000; i += 200){
-     stroke(147, 247, 100);
-     noFill();
+     stroke(255);
+     fill(255);
      strokeWeight(5);
-     circle(i, 120, 25);
+     circle(i, 80, 25);
      }
    }
    if (key == ' ')
