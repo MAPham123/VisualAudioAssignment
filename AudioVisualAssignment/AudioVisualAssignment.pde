@@ -9,6 +9,15 @@ void setup() {
   size(1024, 749, P3D);
   colorMode(HSB);
   
+  r = 5.0f;
+  theta = 0.0f;
+  cx = width * 0.5f;
+  cy = height * 0.5f;
+  
+  px = cx;
+  py = cy;
+  c = 0;
+  
   box = new cube(150, 0.02f, 20, color(30,140,200), width/2, height/2);
   betterBox = new cube(50, 0.04f ,10 ,color(90,70,100), width/2, height/2);
   evenBetterBox = new cube(250, 0.01f, 10, color(90,70,100), width/2, height/2);
@@ -19,6 +28,12 @@ void setup() {
   ap.loop();
   ab = ap.mix;
 }
+
+float x,y;
+float r;
+float cx,cy;
+float px, py;
+float c;
 
 float theta = 0;
 cube box;
@@ -67,15 +82,13 @@ void draw() {
   average = total / (float) ab.size();
   lerpedAverage = lerp(lerpedAverage, average, 0.2f);
   
-  background(0);
+  background(150, 100, 255);
   noStroke();
   
   lights();
   
-  float hue = map(lerpedAverage, 0.0f, 1.0f, 0, 255);
+  float hue = map(lerpedAverage, 0.0f, 1.0f, 100, 255);
   color c = color(hue, 255, 255);
-  
-  ///scale(zoom, zoom);
   
   box.speed = map(lerpedAverage, 0.0f, 1.0f, 0, 0.1);
   betterBox.speed = map(lerpedAverage, 0.0f, 1.0f, 0, 0.08);
@@ -111,7 +124,20 @@ void draw() {
     
   }
 
-  
+ x = cx + sin(theta) * r;
+ y = cy - cos(theta) * r;
+ 
+ noStroke();
+ fill(c, 247, 255);
+ circle(px, py, 10);
+ 
+ r += 2f;
+ theta += 2f;
+ c = (c + 1) % 150;
+ 
+ px = x;
+ py = y;
+ 
 }
 
 void mousePressed()
