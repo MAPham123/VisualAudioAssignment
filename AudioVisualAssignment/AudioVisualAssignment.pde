@@ -9,7 +9,7 @@ void setup() {
   size(1024, 749, P3D);
   colorMode(HSB);
   
-  r = 5.0f;
+  r = 2.0f;
   theta = 0.0f;
   cx = width * 0.5f;
   cy = height * 0.5f;
@@ -119,15 +119,16 @@ void draw() {
  x = cx + sin(theta) * r;
  y = cy - cos(theta) * r;
  
- noStroke();
- fill(c, 247, 255);
- circle(px, py, 10);
+ stroke(150, 255, 255);
+ line(px, py, x, y);
+
  
  r += 2f;
  theta += 2f;
  
  px = x;
  py = y;
+
  
  for(int i = 100; i < 1000; i += 200)
  {
@@ -148,25 +149,24 @@ void keyPressed(){
     numCubes = key - '0';
     makeCubes(numCubes);
   }
-  if(key == CODED){
+  //if(key == CODED){
    if (keyCode == UP){
      for(int i = 100; i < 1000; i += 200){
      stroke(147, 247, 100);
      noFill();
+     strokeWeight(5);
      circle(i, 120, 25);
      }
    }
+   if (key == ' ')
+  {
+    if (ap.isPlaying())
+    {
+      ap.pause();
+    }
+    else
+    {
+      ap.play();
+    }
   }
-}
-
-void mousePressed()
-{
- if (ap.isPlaying())
- {
-   ap.pause();
- } 
- else
- {
-   ap.play();
- }
 }
