@@ -9,12 +9,16 @@ Student Number: C22356336
 Class Group: 1st Year Game Design (2022-2023)
 
 # Description of the project
-Created visuals responding to music with some interactions.
+Created visuals responding to music with some interactions. 
 
 # Instructions for use
 - 'SPACE' to pause/play music.
 - Keys '0' - '9' adds more or less cubes.
 - 'UP ARROW' to make mouth of faces appear.
+
+# Song
+- Song used: Mozart - Turkish March Acapella
+- It is a classical song that has a fun, laid-bak vibe to it. The visuals were less aggresive and softer to help create this vibe. Lighter, cooler colours is also used to imitate the cool, intense but fun moments in the song.
 
 # How it works
 Using Minim in processing, the cube responds to the music. It rotates, changes size and change colour hue accordingly. The circle faces also respond to the music by change of hue. 
