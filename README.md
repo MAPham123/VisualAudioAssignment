@@ -26,7 +26,7 @@ There is a triangular spiral. Using for loops, the circle and faces were made. T
 | Class/asset | Source |
 |-----------|-----------|
 | Cube.pde | Classwork example |
-| VisualAudioAssignment | Processing References and past classworks |
+| VisualAudioAssignment.pde | Processing References and past classworks |
 
 # References
 - https://processing.org/reference
